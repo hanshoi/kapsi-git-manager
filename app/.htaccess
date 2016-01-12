@@ -1,7 +1,3 @@
-AddHandler fcgid-script .fcgi
-RewriteEngine on
-# Set up static content redirect:
-RewriteRule static/(.+)$ kgm/public/static/$1
-# The following two lines are for FastCGI:
+RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^(.*)$ application.fcgi/$1 [QSA,L]
+RewriteRule ^(.*)$ kgm.fcgi/$1 [QSA,L]
