@@ -1,8 +1,9 @@
-#!/home/users/hanshoi/envs/kgm/bin/python
+#!/home/users/MYUSERNAME/MYVIRTUALENV/bin/python
 
 # vars
-VIRTUAL_ENV_BIN = "/home/users/hanshoi/envs/kgm/bin"
-SITE_PATH = "/home/users/hanshoi/sites/hanshoi.kapsi.fi/secure-www/kgm"
+USERNAME="MYUSERNAME"
+VIRTUAL_ENV_BIN = "/home/users/{}/MYVIRTUALENV/bin".format(USERNAME)
+SITE_PATH = "/home/users/{0}/sites/{0}.kapsi.fi/secure-www/MYSITE".format(USERNAME)
 
 # Set up the virtual environment:
 import os, sys
@@ -15,11 +16,9 @@ os.chdir(SITE_PATH)
 # Add a custom Python path.
 sys.path.insert(0, SITE_PATH)
 
-
-#!/usr/bin/python
-
+# FCGI part
 from flup.server.fcgi import WSGIServer
-from main import app
+from kapsi-git-manager import app
 
 if __name__ == '__main__':
     WSGIServer(app).run()
