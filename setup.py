@@ -14,8 +14,8 @@ setup(
     license="MIT",
     keywords="git management kapsi",
     url="http://packages.python.org/kapsi_git_manager",
-    packages=['kapsi_git_manager', 'tests'],
-    long_description=read('README.txt'),
+    packages=['kapsi_git_manager'],
+    long_description=read('README.md'),
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Topic :: Utilities",
