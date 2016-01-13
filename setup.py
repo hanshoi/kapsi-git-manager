@@ -3,7 +3,14 @@ from setuptools import setup
 
 
 def read(fname):
-    return open(os.path.join(os.path.dirname(__file__), fname)).read()
+    """
+    Read README.md as long description if found.
+    Otherwise just return short description.
+    """
+    try:
+        return open(os.path.join(os.path.dirname(__file__), fname)).read()
+    except IOError:
+        return "Simple git management application to be used in Kapsi hosting."
 
 setup(
     name="kapsi_git_manager",
