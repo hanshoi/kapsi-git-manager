@@ -18,7 +18,7 @@ sys.path.insert(0, SITE_PATH)
 
 # FCGI part
 from flup.server.fcgi import WSGIServer
-from kapsi_git_manager import app
+from kapsi_git_manager.kgm import app
 
 if __name__ == '__main__':
     WSGIServer(app).run()
