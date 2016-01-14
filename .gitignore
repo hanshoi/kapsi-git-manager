@@ -1,3 +1,4 @@
 eproject.cfg
 .env
 *.pyc
+.ropeproject
