@@ -1,5 +1,6 @@
 from __future__ import absolute_import
 import os
+import logging
 
 from flask import Flask, request, redirect, render_template, url_for, flash
 from .authentication import auth
@@ -14,6 +15,8 @@ GIT_FOLDER = PROJECT_ROOT
 
 app.config.from_object(__name__)
 app.config.from_envvar('KGM_SETTINGS', silent=True)
+
+logging.basicConfig(filename='error.log', level=logging.DEBUG)
 
 
 @app.route('/')

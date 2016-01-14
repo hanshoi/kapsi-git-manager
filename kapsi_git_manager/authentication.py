@@ -1,3 +1,5 @@
+import logging
+
 from flask_httpauth import HTTPBasicAuth
 
 auth = HTTPBasicAuth()
@@ -10,4 +12,7 @@ users = {
 @auth.get_password
 def get_pw(username):
     """ return password or None if there isn't one"""
-    return users.get(username)
+    if username in users:
+        return users.get(username)
+    logging.warning("%s tried to login with wrong passwod", username)
+    return None
