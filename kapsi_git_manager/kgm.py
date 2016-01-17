@@ -18,7 +18,7 @@ GIT_FOLDER = os.path.dirname(os.path.dirname(__file__))
 app.config.from_object(__name__)
 app.config.from_envvar('KGM_SETTINGS', silent=True)
 
-logging.basicConfig(filename='kgm.log', level=logging.DEBUG)
+logging.basicConfig(filename='kgm.log', level=logging.INFO)
 
 users = {
     "admin": "secret",
@@ -55,8 +55,6 @@ def index():
 def home():
     repo_folder = app.config["GIT_FOLDER"]
     repos = get_repos(repo_folder)
-    logging.debug("Home page accessed. Using Repo folder: {}".format(repo_folder))
-    logging.debug("Found {} repos".format(len(repos)))
     return render_template('show_repos.html', authed=True, repos=repos)
 
 
