@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block body %}
-  <table class="repos-table">
+  <table class="striped-table">
     <tr>
       <th>Name</th>
       <th>SSH url</th>
@@ -17,11 +17,11 @@
     </tr>
   {% endfor %}
   </table>
-  <form action="{{ url_for('add_repo') }}" method="post" class="add-repo">
-    <dl>
-      <dt>Create new repo:</dt>
-      <dd><input type="text" size="30" name="name"></dd>
-      <dd><input type="submit" value="Create"></dd>
-    </dl>
+  <h3>Create new repo</h3>
+  <form action="{{ url_for('add_repo') }}" method="post">
+    <div>
+      <input type="text" size="30" name="name">
+    </div>
+    <button type="submit" class="btn btb-default">Create</button>
   </form>
 {% endblock body %}
