@@ -4,34 +4,21 @@ import logging
 from functools import wraps
 
 from flask import Flask, request, redirect, render_template, url_for, flash
-from flask_httpauth import HTTPBasicAuth
 
 from .git_utils import get_repos, create_repo
+from .authentication import auth
 
 app = Flask(__name__)
-auth = HTTPBasicAuth()
 
 # configuration
 SECRET_KEY = 'development key'
 GIT_FOLDER = os.path.dirname(os.path.dirname(__file__))
+CREDENTIAL_FILE = os.path.join('tests', 'test.passwd')
 
 app.config.from_object(__name__)
 app.config.from_envvar('KGM_SETTINGS', silent=True)
 
 logging.basicConfig(filename='kgm.log', level=logging.INFO)
-
-users = {
-    "admin": "secret",
-}
-
-
-@auth.get_password
-def get_pw(username):
-    """ return password or None if there isn't one"""
-    if username in users:
-        return users.get(username)
-    logging.warning("%s tried to login with wrong password", username)
-    return None
 
 
 def user_access_log(f):

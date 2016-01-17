@@ -34,6 +34,7 @@ setup(
         'Flask',
         'flup<=1.0.2',
         'Flask-HTTPAuth',
-        'GitPython'
+        'GitPython',
+        'passlib'
     ],
 )

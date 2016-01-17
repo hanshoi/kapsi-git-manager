@@ -2,5 +2,6 @@ Flask==0.10.1
 flup==1.0.2
 Flask-HTTPAuth==2.7.0
 GitPython==1.0.1
+passlib==1.6.5
 pytest
 mock
