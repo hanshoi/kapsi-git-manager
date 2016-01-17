@@ -16,8 +16,10 @@ class KgmRepo(object):
 
     @property
     def ssh_url(self):
-        username = self.git_dir.replace('/home/users/', '').replace('/{}.git'.format(self.name), '')
-        return "{0}@lakka.kapsi.fi:{1.git_dir}/{1.name}".format(username, self)
+        tmppath = self.git_dir.replace('/var/www/userhome/', '')
+        username = tmppath[:tmppath.find("/")]
+        new_git_dir = '/home/users/' + tmppath
+        return "{}@lakka.kapsi.fi:{}".format(username, new_git_dir)
 
 
 def get_repos(path):
