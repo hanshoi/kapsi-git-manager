@@ -1,6 +1,5 @@
 import os
 from git import Repo
-from os.path import isdir
 
 
 class KgmRepo(object):
@@ -27,7 +26,7 @@ def get_repos(path):
     """
     repos = []
     for name in os.listdir(path):
-        if isdir(name) and name[0] != '.':
+        if os.path.isdir(os.path.join(path, name)) and name[0] != '.':
             repos.append(KgmRepo(path, name))
     return repos
 

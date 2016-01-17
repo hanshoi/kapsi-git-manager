@@ -4,6 +4,7 @@
 USERNAME="MYUSERNAME"
 VIRTUAL_ENV_BIN = "/home/users/{}/MYVIRTUALENV/bin".format(USERNAME)
 SITE_PATH = "/home/users/{0}/sites/{0}.kapsi.fi/secure-www/MYSITE".format(USERNAME)
+CONF_FILE = "home/users/{0}/kgm.conf".format(USERNAME)
 
 # Set up the virtual environment:
 import os, sys
@@ -11,6 +12,7 @@ os.environ.setdefault('PATH', '/bin:/usr/bin')
 os.environ['PATH'] = VIRTUAL_ENV_BIN+':' + os.environ['PATH']
 os.environ['VIRTUAL_ENV'] = VIRTUAL_ENV_BIN
 os.environ['PYTHON_EGG_CACHE'] = VIRTUAL_ENV_BIN
+os.environ['KGM_SETTINGS'] = CONF_FILE
 os.chdir(SITE_PATH)
 
 # Add a custom Python path.
