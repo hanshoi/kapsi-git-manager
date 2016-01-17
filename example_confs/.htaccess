@@ -3,3 +3,5 @@ RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^(.*)$ kgm.fcgi/$1 [QSA,L]
 RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteRule /?\.htaccess$ - [F,L]
+RewriteRule ^/?kgm\.log$ - [F,L]
