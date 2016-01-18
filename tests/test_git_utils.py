@@ -17,16 +17,19 @@ def test_ssh_url():
     assert repo.ssh_url == "testuser@lakka.kapsi.fi:/home/users/testuser/codedir/reponame.git"
 
 
-def test_get_repos():
+def test_get_repos(tmpdir):
     """
     Get all folders in given path that aren't hidden as KgmRepo instances.
     """
-    repos = git_utils.get_repos('.')
-    assert len(repos) >= 1
+    tmpdir.mkdir("myrepo")
+    tmpdir.join("my.txt")
+    tmpdir.mkdir(".hidden")
+    repos = git_utils.get_repos(str(tmpdir.realpath()))
+    assert len(repos) == 1
     assert isinstance(repos[0], git_utils.KgmRepo)
-    assert "tests" in [a.name for a in repos]
+    assert "myrepo" in [a.name for a in repos]
 
 
-def test_no_repos():
-    repos = git_utils.get_repos('tests')
+def test_no_repos(tmpdir):
+    repos = git_utils.get_repos(str(tmpdir.realpath()))
     assert len(repos) == 0
