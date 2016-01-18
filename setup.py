@@ -14,7 +14,7 @@ def read(fname):
 
 setup(
     name="kapsi_git_manager",
-    version="0.0.2",
+    version="0.1.0",
     author="Antti Ruotsalainen",
     author_email="antti.ruotsalainen@hanshoi.net",
     description=("Simple git management application to be used in Kapsi hosting."),
