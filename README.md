@@ -40,11 +40,15 @@ Anyone who has the enthusiasm and skill is allowed to contribute. Just fork the 
 
 ## Development Environment
 1. make a virtualenvironment and activate it
-2. pip install requirements.txt
-3. python main.py     (opens app in localhost:5000)
+  1.1 install necessary requirements
+  ```sudo pip install virtualenv
+  sudo pip install virtualenvwrapper```
+  1.2
+2. `pip install requirements.txt`
+3. `python main.py`     (opens app in localhost:5000)
 
 This is all, you are ready to roll.
 
 ## Testing
-1. pip install -r
-2. py.test  (executed from git root directory)
+1. run `pip install -e` in root directory
+2. run `py.test` from root directory
