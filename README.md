@@ -16,9 +16,9 @@ This is not meant to be general purpose or to work elsewhere, just to help those
 8. make a git folder `mkdir ~/code` (any other folder goes as well)
 9. make password file `htpasswd -c ~/.kgm.htpasswd USERNAME`
 10. copy following files from example_confs
-  10.1. `cp kgm.conf ~/`
-  10.2. `cp .htaccess ~/sites/USERNAME.kapsi.fi/secure-www/kgm`
-  10.3. `cp .mysite.fcgi ~/sites/USERNAME.kapsi.fi/secure-www/kgm`
+  1. `cp kgm.conf ~/`
+  2. `cp .htaccess ~/sites/USERNAME.kapsi.fi/secure-www/kgm`
+  3. `cp .mysite.fcgi ~/sites/USERNAME.kapsi.fi/secure-www/kgm`
 11. change the CAPITALIZED text in ~/kgm.conf
 12. change the CAPITALIZED text in ~/sites/USERNAME.kapsi.fi/secure-www/kgm/mysite.fcgi
 
@@ -40,10 +40,10 @@ Anyone who has the enthusiasm and skill is allowed to contribute. Just fork the 
 
 ## Development Environment
 1. make a virtualenvironment and activate it
-  1.1 install necessary requirements
+  1. install necessary requirements
   ```sudo pip install virtualenv
   sudo pip install virtualenvwrapper```
-  1.2
+  2.
 2. `pip install requirements.txt`
 3. `python main.py`     (opens app in localhost:5000)
 
