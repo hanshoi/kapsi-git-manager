@@ -33,21 +33,31 @@ When you have done the installation part you should now have web page accessible
 * Adding role based view support for this application
 * Combining users from this account and HTTPS git access
 * Make repo descriptions available
-* make a easier installation (with makefiles perhaps..)
+* Make a easier installation (with makefiles perhaps..)
 
 # Contributing
 Anyone who has the enthusiasm and skill is allowed to contribute. Just fork the repo and make a pull request to this one and I will add it.
 
 ## Development Environment
 1. make a virtualenvironment and activate it
-  1. install necessary requirements
-  ```sudo pip install virtualenv
-  sudo pip install virtualenvwrapper```
-  2.
+  1. install necessary requirements `sudo pip install virtualenv virtualenvwrapper`
+  2. make virtualenv `mkvirtualenv myenv`
+  3. start using it `workon myenv`
 2. `pip install requirements.txt`
 3. `python main.py`     (opens app in localhost:5000)
 
 This is all, you are ready to roll.
+
+Note: if you at any point want to stop using your virtualenv just run the command `deactivate`
+
+### Autoenv (optional)
+Installing and using autoenv is optional completely, however a good tool in a lazy developers toolbox (and you know who you are..).
+
+1. install autoenv in your system `sudo pip install autoenv`
+2. run the following command in project root directory `echo "workon myenv" > .env`
+
+Now you should be having a file called .env in your project root and command `workon myenv` within it. This will automatically enable myenv virtualenvironment
+when you enter project directory tree (or any other command you deign to put there). It will not however `deactivate` it for you when you leave.
 
 ## Testing
 1. run `pip install -e` in root directory
